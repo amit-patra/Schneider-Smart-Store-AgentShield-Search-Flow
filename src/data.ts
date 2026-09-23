@@ -1,41 +1,157 @@
-import { Action, Intent, Scenario } from "./types";
-
-export const hotels = [
-  { name: "Novotel Paris Centre", price: 390, rating: 4.3 },
-  { name: "Mercure Paris Gare", price: 420, rating: 4.4 },
-  { name: "Hôtel Lumière", price: 470, rating: 4.6 }
+import { Product } from "./types";
+export const products: Product[] = [
+  {
+    id: "p1",
+    name: "Acti9 xC60 2P C 40A MCB",
+    sku: "A9N2P40CGN",
+    category: "MCB",
+    price: 1166,
+    mrp: 2989,
+    rating: 4.6,
+    points: 116,
+  },
+  {
+    id: "p2",
+    name: "Acti9 xC60 2P B 20A MCB",
+    sku: "A9N2P20BGN",
+    category: "MCB",
+    price: 724,
+    mrp: 1857,
+    rating: 4.5,
+    points: 72,
+  },
+  {
+    id: "p3",
+    name: "Acti9 xC60 4P D 20A MCB",
+    sku: "A9N4P20DGN",
+    category: "MCB",
+    price: 1678,
+    mrp: 4303,
+    rating: 4.6,
+    points: 167,
+  },
+  {
+    id: "p4",
+    name: "Acti9 xC60 4P C 32A MCB",
+    sku: "A9N4P32CIN",
+    category: "MCB",
+    price: 1450,
+    mrp: 3718,
+    rating: 4.5,
+    points: 145,
+  },
+  {
+    id: "p5",
+    name: "Acti9 xC60 4P C 40A MCB",
+    sku: "A9N4P40CIN",
+    category: "MCB",
+    price: 2106,
+    mrp: 5401,
+    rating: 4.6,
+    points: 210,
+  },
+  {
+    id: "p6",
+    name: "Acti9 xC60 4P C 63A MCB",
+    sku: "A9N4P63CIN",
+    category: "MCB",
+    price: 2194,
+    mrp: 5625,
+    rating: 4.7,
+    points: 219,
+  },
+  {
+    id: "p7",
+    name: "Easy9 Surge Arrestor T2 1P-N",
+    sku: "EZ9L33620",
+    category: "Surge Protection",
+    price: 2011,
+    mrp: 3868,
+    rating: 4.4,
+    points: 201,
+  },
+  {
+    id: "p8",
+    name: "Easy9 Surge Arrestor T2 3P-N",
+    sku: "EZ9L33720",
+    category: "Surge Protection",
+    price: 3630,
+    mrp: 6981,
+    rating: 4.5,
+    points: 363,
+  },
+  {
+    id: "p9",
+    name: "Easy9 VTPN DB 4 Ways",
+    sku: "EZ9EVM04",
+    category: "Distribution Board",
+    price: 5089,
+    mrp: 10177,
+    rating: 4.4,
+    points: 508,
+  },
+  {
+    id: "p10",
+    name: "Easy9 VTPN DB 8 Ways",
+    sku: "EZ9EVM08",
+    category: "Distribution Board",
+    price: 7322,
+    mrp: 14643,
+    rating: 4.6,
+    points: 732,
+  },
+  {
+    id: "p11",
+    name: "Easy9 VTPN DB 12 Ways",
+    sku: "EZ9EVM12",
+    category: "Distribution Board",
+    price: 9217,
+    mrp: 18434,
+    rating: 4.6,
+    points: 921,
+  },
+  {
+    id: "p12",
+    name: "EasyPact CVS160N 160A 3P",
+    sku: "LV516507",
+    category: "MCCB",
+    price: 23920,
+    mrp: 47840,
+    rating: 4.7,
+    points: 2392,
+  },
+  {
+    id: "p13",
+    name: "EasyPact CVS100F 40A 3P",
+    sku: "LV510552",
+    category: "MCCB",
+    price: 15735,
+    mrp: 31470,
+    rating: 4.5,
+    points: 1573,
+  },
+  {
+    id: "p14",
+    name: "EasyPact CVS100N 100A 4P",
+    sku: "LV510585",
+    category: "MCCB",
+    price: 26305,
+    mrp: 52610,
+    rating: 4.7,
+    points: 2630,
+  },
+  {
+    id: "p15",
+    name: "Acti9 iCT Modular Contactor",
+    sku: "A9C20832",
+    category: "Contactor",
+    price: 3890,
+    mrp: 5590,
+    rating: 4.5,
+    points: 389,
+  },
 ];
-
-export const initialIntent: Intent = {
-  destination: "Paris",
-  nights: 3,
-  budget: 500,
-  guests: 2
-};
-
-export const actions: Record<Scenario, Action> = {
-  normal: {
-    hotel: "Novotel Paris Centre",
-    hotelPrice: 390,
-    upgrade: 0,
-    insurance: 0,
-    maliciousInstruction: false,
-    externalTransfer: false
-  },
-  injection: {
-    hotel: "Mercure Paris Gare",
-    hotelPrice: 420,
-    upgrade: 0,
-    insurance: 0,
-    maliciousInstruction: true,
-    externalTransfer: true
-  },
-  unauthorized: {
-    hotel: "Mercure Paris Gare",
-    hotelPrice: 420,
-    upgrade: 350,
-    insurance: 120,
-    maliciousInstruction: false,
-    externalTransfer: false
-  }
-};
+export const categories = [
+  "All",
+  ...Array.from(new Set(products.map((p) => p.category))),
+];
